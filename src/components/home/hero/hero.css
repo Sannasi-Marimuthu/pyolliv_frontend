@@ -1,0 +1,610 @@
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+.mainHome {
+  background-color: #ecf0f7;
+}
+
+.hero-section1 {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.inner-text1 {
+  position: absolute;
+}
+
+.hero-section1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content-overlay1 {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 20px;
+  overflow: visible;
+  margin: 0 auto;
+}
+
+.video-content1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: 40px;
+}
+
+.top-left-text1 {
+  position: absolute;
+  /* top: 0;
+  left: 0;
+  width: 252px;
+  height: 238px; */
+  /* background: white; */
+  /* color: #2f4f4f;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 30px 20px;
+  z-index: 11;
+  line-height: 1.5rem; */
+  /* clip-path: url(#waveClip); */
+  /* border-radius: 50px 0 0 0;
+  box-shadow: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(76, 94, 76, 1) 100%
+  );
+    background-image: url(/img/gallery/video_bg.svg);
+    object-fit: cover;
+    object-position: left center;
+    background-repeat: no-repeat; */
+  /* background-size: cover; */
+
+  top: -3px;
+  left: -4px;
+  width: 330px;
+  height: 238px;
+  /* background: white; */
+  color: #2f4f4f;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 35px 20px;
+  z-index: 11;
+  line-height: 1.5rem;
+  /* clip-path: url(#waveClip); */
+  border-radius: 50px 0 0 0;
+  box-shadow: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(76, 94, 76, 1) 100%
+  );
+  background-image: url(/img/gallery/video_bg.svg);
+  object-fit: cover;
+  object-position: left center;
+  background-repeat: no-repeat;
+}
+.inner-text1 h4 {
+  font-size: 18px;
+  text-align: center;
+  color: #536553;
+}
+
+.inner-text1 p {
+  font-size: 24px;
+  color: #536553;
+  font-weight: bold;
+}
+
+.card-container1 {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+.card1 {
+  position: absolute;
+  bottom: -36rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-width: 90vw;
+  padding: 10px;
+  background-image: linear-gradient(to bottom right, #fff, #e2e7f2);
+  box-shadow: 1px 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 12;
+}
+.card-flex {
+  width: 100%;
+}
+.card1 .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card1 img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.card1 .badge {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.card2 {
+  background: rgb(64, 78, 62, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px;
+  border-radius: 50px 0 0 50px;
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  height: 100px;
+  width: 400px;
+  color: white;
+  font-size: 15px;
+  text-align: right;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.16),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 11;
+}
+
+.top {
+  margin-top: 5rem;
+}
+.top1 {
+  margin-top: 2.5rem;
+}
+.main-search {
+  border-radius: 20px;
+  margin-inline: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 0px #686f68;
+  z-index: 9;
+}
+
+.location-badge,
+.date-badge,
+.guest-badge {
+  background-color: #4b5e4b;
+  color: #fff;
+}
+.location-input,
+.date-input,
+.guest-input {
+  background-color: #d9e1ee !important;
+  padding: 5px;
+  border-radius: 10px;
+  width: auto;
+  color: #4b5e4b;
+}
+.date-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date-input {
+  margin-inline: 20px;
+}
+.date-badge {
+  margin-left: 2em;
+}
+.search-btn {
+  border-radius: 10px;
+  height: 30px;
+  width: 250px;
+  height: 50px;
+  margin-inline: auto;
+  margin-bottom: -4em;
+}
+
+.search-btn1 {
+  border-radius: 10px;
+  height: 30px;
+  width: 250px;
+  height: 50px;
+  padding:10px 40px;
+  margin-top: 20px !important;
+}
+@media (max-width: 767px) {
+  .hero-section1 {
+    height: 400px;
+  }
+  .top-left-text1 {
+    width: 220px;
+    height: 180px;
+    padding: 15px 10px;
+    background-image: url(/img/gallery/video_mob.svg);
+    object-fit: cover;
+    object-position: left center;
+    background-repeat: no-repeat;
+  }
+  .inner-text1 h4 {
+    font-size: 8px;
+  }
+  .inner-text1 p {
+    font-size: 12px;
+  }
+  .date-search{
+    margin-left: 5px;
+  }
+  .card1 {
+    position: static;
+    width: 100%;
+    border-radius: 20px;
+    transform: none;
+    margin-top: 18em;
+  }
+  .card1 img {
+    width: 35px;
+    height: 35px;
+  }
+  .card1 .badge {
+    font-size: 0.7rem;
+  }
+  .card2 {
+    width: 220px;
+    height: 65px;
+    bottom: 60px;
+    left: 0%;
+    padding: 5px 5px;
+    font-size: 10px;
+    text-align: start;
+    border-radius: 0px 30px 30px 0px;
+    float: left;
+    background-color: #4c5e4c;
+  }
+
+  .card-container1 {
+    width: 100%;
+    /* margin-left: -20px; */
+    position: absolute;
+    margin-left: -10px;
+  }
+
+  .card-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .card-flex .col {
+    width: 30px;
+  }
+  .card-flex .col span {
+    font-size: 10px;
+  }
+  .search-bg {
+    margin-left: -5em;
+  }
+
+  .main-search {
+    border-radius: 0px;
+    background-color: #eef1f7;
+    box-shadow: 0 0 0 0 #e4eaf3 !important;
+    z-index: 9;
+  }
+  .location-badge,
+  .guest-badge {
+    margin-inline: 8em;
+    padding: 10px;
+    border-radius: 8px !important;
+    width: 100px;
+    font-size: 12px;
+  }
+  .location-input,
+  .date-input,
+  .guest-input {
+    border: 1px solid #4c5e4c;
+    background-color: #fff !important;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    color: #4b5e4b;
+    margin-top: -0.3em;
+  }
+
+  .date-input {
+    margin-inline: 0px;
+    width: 150px !important;
+  }
+
+  .date-badge {
+    padding: 8px;
+    border-radius: 8px !important;
+    width: 80px;
+    font-size: 12px;
+    margin-inline: 30px;
+  }
+  .guest-badge {
+    width: fit-content;
+    margin-inline: 7em;
+  }
+  .guest-input {
+    padding: 10px 25px;
+  }
+
+  .search-btn {
+    border-radius: 10px;
+    width: 250px;
+    height: 50px;
+    margin-right: 6em;
+    margin-bottom: opx !important;
+  }
+}
+
+/* Trending Search At Py-Olliv start */
+
+.heading {
+  margin-right: -25em;
+  text-align: center;
+  margin-top: -1.5em;
+}
+
+.section {
+  display: flex;
+  align-items: stretch;
+  background: #eff8f3;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+  margin: 40px auto;
+  transform: rotate(180deg);
+  z-index: 9;
+}
+
+.left {
+  flex: 1;
+  padding: 60px 30px;
+  position: relative;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background: #dfeaed;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  width: 400px;
+  margin-left: 1em;
+}
+
+.item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.right {
+  clip-path: url(#waveClip2);
+  height: 400px;
+}
+
+.right img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 767px) {
+  .right,
+  .right img {
+    display: none;
+  }
+  .heading {
+    margin-inline: auto;
+    font-size: 20px;
+  }
+  .section {
+    height: auto;
+  }
+  .left {
+    width: fit-content;
+    padding: 40px 20px;
+    padding-bottom: 0px;
+    background-color: #f9fff9;
+  }
+  .item {
+    width: 300px;
+    font-size: 16px;
+    text-align: left;
+    background-color: #ffffff;
+    box-shadow: 0 2px 3px 0px #686f68;
+    margin-top: 1.7em;
+  }
+  .item span {
+    text-align: center;
+  }
+}
+
+/* Trending Search At Py-Olliv End */
+
+/* Hotels start */
+
+.swiper-slide-hotel {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 3px 0px #686f68;
+  padding: 10px;
+  border-radius: 20px;
+  width: 350px;
+  height: 500px;
+  margin-right: 30px;
+  margin-top: 0px !important;
+}
+.swiper-slide {
+  width: 25%;
+  margin-block: 3%;
+}
+.hotelsCard__image {
+  width: auto;
+  height: 230px;
+  border-radius: 20px;
+  margin-inline: auto;
+  margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+  .swiper-slide-hotel {
+    margin-top: 0px !important;
+  }
+}
+/* Hotels end */
+
+/* signature start */
+
+.title-sign {
+  font-size: 4rem;
+  text-align: center;
+  color: rgb(31, 29, 29);
+  font-weight: normal;
+  font-family: "ClainaVanie", cursive;
+}
+
+.swiper-container {
+  width: 100%;
+  /* margin-inline: auto; */
+}
+.sign-swiper {
+  margin-top: -2em;
+}
+.signature-card {
+  width:400px;
+  height: 500px;
+  border-radius:  40px 40px 100px 40px;
+  overflow: hidden;
+  position: relative;
+   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+
+  margin-block-end: 20px;
+}
+
+.signature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 20px;
+}
+
+
+/* .slide-content{
+  width: 432px;
+  height: 550px;
+} */
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height:47%;
+  background-color: #ffddab;
+  clip-path: url(#wave-clip);
+  z-index: 1;
+}
+.wave-text {
+  position: absolute;
+  bottom: 20px;
+  color: #703b0b;
+  z-index: 2;
+  margin-left: 15rem;
+    
+}
+
+.wave-text h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  
+}
+
+.wave-text p {
+ 
+    font-size: 20px;
+    color: #703b0b;
+    margin-top: -.5em;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+@media (max-width: 767px) {
+  .title-sign {
+    font-size: 3em;
+  }
+  .signature-card {
+    width: 100%;
+    height: 500px;
+    border-radius: 40px 40px 80px 40px;
+  }
+  .wave-text {
+    margin-left: 12rem;
+  }
+}
+/* signature end */
+
+/* Unique selling start */
+
+.unique-item {
+  background-color: #fff;
+  width: 30em;
+  padding: 10px 0px;
+  margin-top: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  color: black;
+  font-weight: bold;
+}
+.unique-left:first-child,
+.unique-right:first-child {
+  margin-top: 0px;
+}
+
+@media (max-width: 767px) {
+  .unique-title {
+    font-size: 22px;
+  }
+  .unique-item {
+    width: 300px;
+    padding-top: 0px;
+    margin-inline: 3px;
+  }
+  .unique-right {
+    padding-top: 0px;
+  }
+}
+/* Unique selling end */

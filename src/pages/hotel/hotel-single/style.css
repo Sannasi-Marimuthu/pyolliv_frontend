@@ -1,0 +1,124 @@
+
+
+.detail-search{
+    margin-inline:5em;
+    width: 100%;
+    border-radius: 0px 0px 25px 25px ;
+     box-shadow: 0 2px 3px 0px #686f68;
+     background: linear-gradient(90deg, rgb(97, 171, 97) 25%, rgb(73, 115, 73) 100%, rgb(73, 115, 73) 100%);
+    
+    }
+.detail-search2{
+      margin-inline:10em;
+    width: 80%;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    /* border-radius: 0px 0px 25px 25px ; */
+     box-shadow: 0 2px 3px 0px #686f68
+}
+@media (max-width:767px){
+    .mainSearch{
+        margin-inline: 2em;
+        width: 100%;
+        padding: 20px;
+        
+    }
+    .searchMenu-date {
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+    .list-search-btn {
+        font-size: 14px;
+        margin-top: 20px;
+
+    }
+}
+
+.list-location {
+  background-color: #eff8f4;
+  padding: 5px;
+  border-radius: 10px;
+  width: auto;
+  color: #4b5e4b;
+}
+.list-date {
+  background-color: #eff8f4;
+  color: #4b5e4b;
+  padding: 8px;
+  border-radius: 10px;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.list-guest {
+  background-color: #eff8f4;
+  color: #4b5e4b;
+  padding: 8px;
+  border-radius: 10px;
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* rating box start */
+.rating-box{
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+/* rating box end */
+/* hotel-tab start */
+.hotel-tab {
+    background-color: #fff;
+    margin-top: -1em;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+}
+/* hotel-tab end */
+
+.single-hotel{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    padding-bottom: 100px; 
+     
+}
+
+.hotel-tab{
+    margin-top: -5em;
+}
+
+    .hotel-map{
+        width:50em
+    }
+    .location-hotel {
+        height:420px
+    }
+    .rating-margin{
+        margin-inline: 5em;
+    }
+@media (max-width:767px){
+
+    .single-hotel{
+        padding-bottom: 15em;
+        border-radius: 5px;
+    }
+    .hotel-tab{
+        margin-top: -14em;
+    }
+    .overview-hotel, .hotel-policie{
+        flex-wrap: wrap;
+    } .hotel-map{
+       display: none;
+    }
+    .location-hotel {
+        height:500px
+    }
+     .rating-margin{
+        margin-inline: 1em;
+    }
+}
