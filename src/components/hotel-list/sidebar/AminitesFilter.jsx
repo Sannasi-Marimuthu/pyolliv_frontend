@@ -7,7 +7,7 @@ const AmenitiesFilter = () => {
 // const [roomtypes, setRoomtypes] = useState(null);
    useEffect(() => {
     // Replace with your actual backend API URL
-    axios.get("https://backend-2-rkqo.onrender.com")
+    axios.get("http://localhost:4500")
       .then((response) => {
         setSetViews(response.data); // assuming response is like [{name: "", count: 10}, ...]
       })

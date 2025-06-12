@@ -98,8 +98,6 @@ const HotelList = () => {
                     <div className="row y-gap-30">
                       <HotelProperties />
                     </div>
-                    {/* End .row */}
-                    <Pagination />
                   </div>
                 </div>
               </div>

@@ -1,45 +1,67 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination as SwiperPagination } from "swiper";
 import { Link } from "react-router-dom";
-import { api } from "../../../axios/axios";
+// import { api } from "../../../axios/axios";
+import axios from "axios";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// const api = "https://backend-2-rkqo.onrender.com/api/getHotelDetails"
-
-// const baseUrl = 'https://backend-2-rkqo.onrender.com/api'
-//   const baseUrl1 = 'https://backend-2-rkqo.onrender.com'
 
 const HotelProperties = () => {
   const [hotelsData, setHotelsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   useEffect(() => {
+    let isMounted = true; // to prevent state update on unmounted component
     const fetchHotels = async () => {
+      setLoading(true);
       try {
-        const response = await api.getAll("getHotelProperty");
+        const response = await axios.get(
+          "https://backend-2-rkqo.onrender.com/api/getHotelList"
+        );
         const hotels = Array.isArray(response.data) ? response.data : [];
-        console.log(JSON.stringify(response.data));
-        setHotelsData(hotels);
+        if (isMounted) {
+          setHotelsData(hotels);
+          console.log("Hotel data:", hotels);
+        }
       } catch (error) {
         console.error("Error fetching hotel data:", error);
-        setHotelsData([]);
+        if (isMounted) setHotelsData([]);
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
 
     fetchHotels();
+
+    return () => {
+      isMounted = false; // cleanup
+    };
   }, []);
+
+  const totalPages = Math.ceil(hotelsData.length / itemsPerPage);
+
+  const paginatedHotels = hotelsData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageClick = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
 
   if (loading) return <div>Loading hotel list...</div>;
   if (!hotelsData.length) return <div>No hotels found.</div>;
 
   return (
     <>
-      {hotelsData.slice(0, 7).map((item) => (
+      {paginatedHotels.map((item) => (
         <div className="col-12" key={item._id}>
           <div
             className="row hotel-list-padding"
@@ -54,21 +76,24 @@ const HotelProperties = () => {
               <div className="cardImage ratio ratio-1:1 w-250 md:w-1/1 rounded-4">
                 <Swiper
                   className="mySwiper"
-                  modules={[Pagination, Navigation]}
+                  modules={[SwiperPagination, Navigation]}
                   pagination={{ clickable: true }}
                   navigation={true}
                 >
-                  {item?.hotelImages?.length > 0 ? (
-                    item.hotelImages.map((slide, i) => (
+                  {item?.images?.[0]?.Coverimage?.length > 0 ? (
+                    item.images[0].Coverimage.map((slide, i) => (
                       <SwiperSlide key={i}>
                         <img
-                          src={slide}
+                          src={`https://backend-2-rkqo.onrender.com/uploads/${slide.replace(
+                            /\\/g,
+                            "/"
+                          )}`}
                           alt={`hotel-${i}`}
                           style={{
-                            height: "220px",
                             width: "100%",
                             borderRadius: "20px",
                             objectFit: "cover",
+                            height: "auto",
                           }}
                         />
                       </SwiperSlide>
@@ -92,10 +117,10 @@ const HotelProperties = () => {
             </div>
 
             <div className="col-md right-title-hotel">
-              <h2 className="text-20 lh-16 fw-500">{item.Propertyname}</h2>
-              <p className="text-14">
-                {item.Propertyaddress}
-              </p>
+              <h2 className="text-20 lh-16 fw-500">
+                {item.categories[0].Name}
+              </h2>
+              <p className="text-14">{item.categories[0].From}</p>
               <p className="text-14">
                 Free cancellation. <span>Breakfast included</span>
               </p>
@@ -111,10 +136,10 @@ const HotelProperties = () => {
 
               <div className="lh-15 mt-10">
                 <div className="fw-500 text-16">
-                  {item.roomType || "King Room"}
+                  {item.categories[0].Category}
                 </div>
                 <div className="text-light-1 text-14">
-                  1 extra-large double bed
+                  {item.roomtypes?.[0]?.Bedinfo ?? "N/A"}
                 </div>
                 <div className="text-light-1 text-14">1 bathroom</div>
               </div>
@@ -155,8 +180,7 @@ const HotelProperties = () => {
 
               <div className="list-hotel-price mt-2">
                 <div className="text-22" style={{ color: "#4f934f" }}>
-                  ₹{item.Yearofconstruction
- }
+                  ₹{item.prices?.[0]?.Price ?? "N/A"}
                 </div>
                 <div className="text-14 text-light-1 fw-600 mt-5">
                   3 nights, 2 guests
@@ -178,6 +202,64 @@ const HotelProperties = () => {
           </div>
         </div>
       ))}
+
+      {/* Pagination Controls */}
+      <div className="pagination row x-gap-10 y-gap-10 justify-center mt-20">
+        <button
+          onClick={() => handlePageClick(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="button -blue-1 size-40 rounded-full border-light"
+        >
+          &lt;
+        </button>
+
+        {[...Array(totalPages)].map((_, i) => {
+          const page = i + 1;
+          const showFirstPages = page <= 4;
+          const showLastPages = page >= totalPages - 1;
+          const showCurrentAround = Math.abs(currentPage - page) <= 1;
+
+          if (showFirstPages || showLastPages || showCurrentAround) {
+            return (
+              <button
+                key={page}
+                onClick={() => handlePageClick(page)}
+                className={`button size-40 rounded-full ${
+                  currentPage === page ? "bg-dark-1 text-white" : "border-light"
+                }`}
+              >
+                {page}
+              </button>
+            );
+          }
+
+          if (page === 5 && totalPages > 8) {
+            return (
+              <span key="dots-start" className="button size-40">
+                ...
+              </span>
+            );
+          }
+
+          if (page === totalPages - 2 && totalPages > 8) {
+            return (
+              <span key="dots-end" className="button size-40">
+                ...
+              </span>
+            );
+          }
+
+          return null;
+        })}
+
+        <button
+          onClick={() => handlePageClick(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="button -blue-1 size-40 rounded-full border-light"
+        >
+          &gt;
+        </button>
+      </div>
     </>
   );
 };
